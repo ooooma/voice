@@ -1,0 +1,187 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #ece5dd;
+    padding: 20px 0;
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 消息区域 */
+.chat-messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    margin: 10px 0;
+    max-width: 70%;
+    display: flex;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+    margin-left: auto;
+}
+
+.message-bubble {
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.user-message .message-bubble {
+    background-color: #95ec69;
+    border-top-right-radius: 4px;
+}
+
+.bot-message .message-bubble {
+    background-color: white;
+    border-top-left-radius: 4px;
+}
+
+/* 语音消息样式 */
+.voice-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+}
+
+.voice-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-wave {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+}
+
+.voice-wave span {
+    display: block;
+    width: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.voice-wave span:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+.voice-wave span:nth-child(3) { animation-delay: 0.4s; height: 16px; }
+
+.voice-duration {
+    font-size: 14px;
+    color: #666;
+}
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.5); }
+}
+
+/* 语音转文字提示 */
+.transcript {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    padding: 0 15px;
+}
+
+/* 输入区域 */
+.input-area {
+    background-color: white;
+    border-radius: 25px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#user-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.voice-btn-container {
+    position: relative;
+}
+
+#voice-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+#voice-btn.recording {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+#send-btn {
+    padding: 8px 15px;
+    background-color: #07c160;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#send-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 录音提示层 */
+.recording-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.recording-toast.active {
+    display: flex;
+}
+
+.toast-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}

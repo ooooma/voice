@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="微信风格语音聊天" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>微信风格语音聊天</title>
+    <!-- 引入 CSS 样式 -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/chat.css" />
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- 聊天容器 -->
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-bubble">
+                    你好！按住麦克风按钮可以发送语音消息~
+                </div>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-area">
+            <input 
+                type="text" 
+                id="user-input" 
+                placeholder="输入消息..."
+            />
+            <div class="voice-btn-container">
+                <button id="voice-btn">🎤</button>
+            </div>
+            <button id="send-btn">发送</button>
+        </div>
+    </div>
+
+    <!-- 录音提示层 -->
+    <div class="recording-toast" id="recording-toast">
+        <div class="toast-icon">🎤</div>
+        <div>松开发送</div>
+    </div>
+
+    <!-- 引入 JavaScript 逻辑 -->
+    <script src="%PUBLIC_URL%/js/chat.js"></script>
+</body>
+</html>
